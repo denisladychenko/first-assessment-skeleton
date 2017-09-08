@@ -3,6 +3,7 @@ package com.cooksys.assessment.server;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 
 import org.slf4j.Logger;
@@ -23,10 +24,13 @@ public class Server implements Runnable {
 	public void run() {
 		log.info("server started");
 		ServerSocket ss;
+	
 		try {
 			ss = new ServerSocket(this.port);
 			while (true) {
 				Socket socket = ss.accept();
+				
+				
 				ClientHandler handler = new ClientHandler(socket);
 				executor.execute(handler);
 			}
