@@ -53,7 +53,7 @@ cli
     } else if (command === 'broadcast'){
      
       this.delimiter(cli.chalk['white'](`<${utcDate}> <${username}> (all):`))
-      
+     
      server.write(new Message({ username, command, contents }).toJSON() + '\n')
       
       
